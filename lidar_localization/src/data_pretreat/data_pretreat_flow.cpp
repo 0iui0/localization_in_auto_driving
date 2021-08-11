@@ -18,7 +18,7 @@ DataPretreatFlow::DataPretreatFlow(ros::NodeHandle& nh, std::string cloud_topic)
     lidar_to_imu_ptr_ = std::make_shared<TFListener>(nh, "/imu_link", "/velo_link");
     // publisher
     cloud_pub_ptr_ = std::make_shared<CloudPublisher>(nh, cloud_topic, "/velo_link", 100);
-    gnss_pub_ptr_ = std::make_shared<OdometryPublisher>(nh, "/synced_gnss", "/map", "/velo_link", 100);
+    gnss_pub_ptr_ = std::make_shared<OdometryPublisher>(nh, "/synced_gnss", "map", "/velo_link", 100);
 
     distortion_adjust_ptr_ = std::make_shared<DistortionAdjust>();
 }

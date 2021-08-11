@@ -10,11 +10,23 @@
 
 namespace lidar_localization {
 G2oGraphOptimizer::G2oGraphOptimizer(const std::string &solver_type) {
-    graph_ptr_.reset(new g2o::SparseOptimizer());
 
     g2o::OptimizationAlgorithmFactory *solver_factory = g2o::OptimizationAlgorithmFactory::instance();
+    // g2o::OptimizationAlgorithmProperty solver_property;
+    // g2o::OptimizationAlgorithm *solver = solver_factory->construct(solver_type, solver_property);
+
+
     g2o::OptimizationAlgorithmProperty solver_property;
-    g2o::OptimizationAlgorithm *solver = solver_factory->construct(solver_type, solver_property);
+    g2o::OptimizationAlgorithm* solver = solver_factory->construct("lm_pcg", solver_property);
+    std::cout<<"name"<<solver_property.name<<std::endl;
+    std::cout<<"desc"<<solver_property.desc<<std::endl;
+    std::cout<<"type"<<solver_property.type<<std::endl;
+    std::cout<<"landmarkDim"<<solver_property.landmarkDim<<std::endl;
+    std::cout<<"poseDim"<<solver_property.poseDim<<std::endl;
+    std::cout<<"margina"<<solver_property.requiresMarginalize<<std::endl;
+    solver_factory->listSolvers(std::cerr);
+
+    graph_ptr_.reset(new g2o::SparseOptimizer());
     graph_ptr_->setAlgorithm(solver);
 
     if (!graph_ptr_->solver()) {

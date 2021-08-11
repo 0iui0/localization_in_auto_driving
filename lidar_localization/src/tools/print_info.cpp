@@ -12,7 +12,7 @@ void PrintInfo::PrintPose(std::string head, Eigen::Matrix4f pose) {
     aff_pose.matrix() = pose;
     float x, y, z, roll, pitch, yaw;
     pcl::getTranslationAndEulerAngles(aff_pose, x, y, z, roll, pitch, yaw);
-    std::cout << head
+    LOG(WARNING) << head
               << x << "," << y << "," << z << "," 
               << roll * 180 / M_PI << "," << pitch * 180 / M_PI << "," << yaw * 180 / M_PI
               << std::endl;
