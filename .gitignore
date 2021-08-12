@@ -37,3 +37,9 @@ lidar_localization/slam_data
 *.exe
 *.out
 *.app
+
+.idea
+.vscode
+.DS_Store
+.history
+.vscode/settings.json

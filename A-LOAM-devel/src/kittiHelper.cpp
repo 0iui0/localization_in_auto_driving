@@ -21,6 +21,10 @@
 #include <pcl/point_types.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <sensor_msgs/PointCloud2.h>
+#include "opencv2/imgcodecs/legacy/constants_c.h"
+#include "opencv2/imgproc/types_c.h"
+
+
 
 std::vector<float> read_lidar_data(const std::string lidar_data_path)
 {

@@ -45,7 +45,7 @@ MACRO(FIND_G2O_LIBRARY MYLIBRARY MYLIBRARYNAME)
     )
 
   FIND_LIBRARY(${MYLIBRARY}
-    NAMES "libg2o_${MYLIBRARYNAME}.so"
+    NAMES "libg2o_${MYLIBRARYNAME}.dylib"
     PATHS
     ${G2O_ROOT}/lib/Release
     ${G2O_ROOT}/lib
@@ -56,7 +56,7 @@ MACRO(FIND_G2O_LIBRARY MYLIBRARY MYLIBRARYNAME)
     )
 
   FIND_LIBRARY(${MYLIBRARY}
-    NAMES "libg2o_${MYLIBRARYNAME}.so"
+    NAMES "libg2o_${MYLIBRARYNAME}.dylib"
     PATHS
     ~/Library/Frameworks
     /Library/Frameworks

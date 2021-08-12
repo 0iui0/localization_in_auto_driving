@@ -5,6 +5,8 @@ SET(CMAKE_BUILD_TYPE "Release")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 add_compile_options(-std=c++11)
 add_definitions(-std=c++11)
+set(CMAKE_INCLUDE_PATH "/usr/local/include")
+set(CMAKE_LIBRARY_PATH "/usr/local/lib")
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
